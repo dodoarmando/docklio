@@ -23,6 +23,7 @@ interface DataTableProps<TData, TValue> {
     description?: string
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    tools?: React.ReactNode
 }
 
 export function DataTable<TData, TValue>({
@@ -30,6 +31,7 @@ export function DataTable<TData, TValue>({
     description,
     columns,
     data,
+    tools,
 }: DataTableProps<TData, TValue>) {
     const table = useReactTable({
         data,
@@ -51,6 +53,7 @@ export function DataTable<TData, TValue>({
             </div>
             <div className="flex items-center py-2">
                 <DataTableViewOptions table={table} />
+                {tools}
             </div>
             <div className="rounded-md border p-2">
                 <Table>

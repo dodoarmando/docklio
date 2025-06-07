@@ -5,6 +5,7 @@ import { Head } from '@inertiajs/react';
 import { type User } from '@/types';
 import { columns } from '@/components/users/columns';
 import { DataTable } from '@/components/data-table';
+import { CreateUserDialog } from '@/components/users/create-user-dialog';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -23,6 +24,7 @@ export default function Users({ users }: { users: User[] }) {
                     description="Manage your users here. You can view, edit, and delete user accounts."
                     columns={columns}
                     data={users}
+                    tools={<CreateUserDialog />}
                 />
             </div>
         </AppLayout>
