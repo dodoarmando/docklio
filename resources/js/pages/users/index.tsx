@@ -19,6 +19,8 @@ export default function Users({ users }: { users: User[] }) {
             <Head title="Users" />
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
                 <DataTable
+                    title="Users"
+                    description="Manage your users here. You can view, edit, and delete user accounts."
                     columns={columns}
                     data={users}
                 />

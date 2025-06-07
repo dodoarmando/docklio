@@ -19,11 +19,15 @@ import { DataTablePagination } from "@/components/data-table-pagination";
 import { DataTableViewOptions } from "@/components/data-table-view-options";
   
 interface DataTableProps<TData, TValue> {
+    title?: string
+    description?: string
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
 }
 
 export function DataTable<TData, TValue>({
+    title,
+    description,
     columns,
     data,
 }: DataTableProps<TData, TValue>) {
@@ -32,12 +36,21 @@ export function DataTable<TData, TValue>({
         columns,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
+        initialState: {
+            pagination: {
+                pageSize: 5,
+            },
+        },
     })
 
     return (
         <div>
-            <div className="flex items-center py-4">
-                    <DataTableViewOptions table={table} />
+            <div>
+                <h1 className="text-2xl font-bold tracking-tight">{ title }</h1>
+                <p className="text-muted-foreground">{ description }</p>
+            </div>
+            <div className="flex items-center py-2">
+                <DataTableViewOptions table={table} />
             </div>
             <div className="rounded-md border p-2">
                 <Table>
