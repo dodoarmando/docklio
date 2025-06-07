@@ -12,14 +12,20 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+import { DataTableColumnHeader } from "@/components/data-table-column-header"
+
 export const columns: ColumnDef<User>[] = [
     {
         accessorKey: "name",
-        header: "Name",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="Name" />
+        ),
     },
     {
         accessorKey: "email",
-        header: "Email",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="Email" />
+        ),
     },
     {
         id: "actions",
