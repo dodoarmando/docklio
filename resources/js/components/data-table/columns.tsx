@@ -1,8 +1,8 @@
-import { ColumnDef } from "@tanstack/react-table"
-import { FilePen, FileScan, FileX2, MoreHorizontal } from "lucide-react"
+import { ColumnDef } from '@tanstack/react-table';
+import { FilePen, FileScan, FileX2, MoreHorizontal } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,48 +10,48 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from '@/components/ui/dropdown-menu';
 
-import { User } from "@/types"
-import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header"
+import { DataTableColumnHeader } from '@/components/data-table/data-table-column-header';
+import { User } from '@/types';
 
 //Start User Columns Definition
 export const userColumn: ColumnDef<User>[] = [
     {
-        id: "select",
+        id: 'select',
         header: ({ table }) => (
             <Checkbox
-                checked={ table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate") }
+                checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate')}
                 onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
                 aria-label="Select all"
             />
         ),
         cell: ({ row }) => (
-            <Checkbox
-                checked={row.getIsSelected()}
-                onCheckedChange={(value) => row.toggleSelected(!!value)}
-                aria-label="Select row"
-            />
+            <Checkbox checked={row.getIsSelected()} onCheckedChange={(value) => row.toggleSelected(!!value)} aria-label="Select row" />
         ),
         enableSorting: false,
         enableHiding: false,
     },
     {
-        accessorKey: "name",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Name" />
-        ),
+        accessorKey: 'name',
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Name" />,
     },
     {
-        accessorKey: "email",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="Email" />
-        ),
+        accessorKey: 'email',
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
     },
     {
-        id: "actions",
+        accessorKey: 'role',
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Role" />,
+    },
+    {
+        accessorKey: 'status',
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Status" />,
+    },
+    {
+        id: 'actions',
         cell: ({ row }) => {
-            const user = row.original
+            const user = row.original;
             return (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -63,14 +63,23 @@ export const userColumn: ColumnDef<User>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem><FileScan />View</DropdownMenuItem>
-                        <DropdownMenuItem><FilePen />Edit</DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <FileScan />
+                            View
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <FilePen />
+                            Edit
+                        </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem><FileX2 />Delete</DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <FileX2 />
+                            Delete
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
-            )
-        }
-    }
-]
+            );
+        },
+    },
+];
 //End User Columns Definition
