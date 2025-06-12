@@ -1,11 +1,11 @@
-import { flexRender, Table as ReactTable } from '@tanstack/react-table';
+import { flexRender, Table as ReactTableInstance } from '@tanstack/react-table';
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 import { DataTablePagination } from '@/components/data-table/data-table-pagination';
 
 interface DataTableProps<TData> {
-    table: ReactTable<TData>;
+    table: ReactTableInstance<TData>;
 }
 
 export function DataTable<TData>({ table }: DataTableProps<TData>) {
@@ -41,7 +41,6 @@ export function DataTable<TData>({ table }: DataTableProps<TData>) {
                     )}
                 </TableBody>
             </Table>
-
             <DataTablePagination table={table} />
         </div>
     );

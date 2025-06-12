@@ -7,6 +7,7 @@ import { userColumn } from '@/components/data-table/columns';
 import { DataTable } from '@/components/data-table/data-table';
 import { DataTableToolbar } from '@/components/data-table/data-table-toolbar';
 
+import CreateUserDialog from '@/components/dialog/create-user-dialog';
 import {
     getCoreRowModel,
     getFilteredRowModel,
@@ -54,7 +55,7 @@ export default function Index({ users }: any) {
 
                 <DataTableToolbar
                     table={table}
-                    searchColumn="name"
+                    searchColumns={['name', 'email']}
                     filters={[
                         {
                             columnId: 'role',
@@ -73,6 +74,7 @@ export default function Index({ users }: any) {
                             ],
                         },
                     ]}
+                    createButton={<CreateUserDialog />}
                 />
 
                 <DataTable table={table} />
