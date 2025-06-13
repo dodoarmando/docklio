@@ -49,7 +49,7 @@ export default function CreateUserDialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button size="sm">
+                <Button size="sm" aria-label="Create new user">
                     <UserPlus className="h-4 w-4" />
                     Create User
                 </Button>
