@@ -7,7 +7,7 @@ import { userColumn } from '@/components/data-table/columns';
 import { DataTable } from '@/components/data-table/data-table';
 import { DataTableToolbar } from '@/components/data-table/data-table-toolbar';
 
-import CreateUserDialog from '@/components/dialog/create-user-dialog';
+import CreateUserDialog from '@/components/users/create-user-dialog';
 import {
     getCoreRowModel,
     getFilteredRowModel,
