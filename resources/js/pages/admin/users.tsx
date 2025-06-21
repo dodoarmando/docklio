@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { UserColumn } from '@/features/users/users-column';
 
 import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem } from '@/types';
+import { type BreadcrumbItem, type User } from '@/types';
 import { Head } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -37,7 +37,7 @@ const userFilters = [
     },
 ];
 
-export default function Users({ users }: any) {
+export default function Users({ users }: { users: User[] }) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Users" />

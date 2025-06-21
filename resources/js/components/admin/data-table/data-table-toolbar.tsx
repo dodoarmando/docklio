@@ -120,7 +120,7 @@ export function DataTableToolbar<TData>({ table, searchColumns = [], filters = [
 }
 
 // --- Komponen Toggle Filter Mobile ---
-function FilterToggleButton({ isActive, filters, table }: { isActive: boolean; filters: FilterConfig[]; table: Table<any> }) {
+function FilterToggleButton<TData>({ isActive, filters, table }: { isActive: boolean; filters: FilterConfig[]; table: Table<TData> }) {
     const [showFilters, setShowFilters] = React.useState(false);
 
     return (
